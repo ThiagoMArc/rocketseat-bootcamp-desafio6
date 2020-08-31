@@ -155,7 +155,7 @@ describe('Transaction', () => {
     expect(transaction).toBeTruthy();
   });
 
-  xit('should not be able to create outcome transaction without a valid balance', async () => {
+  it('should not be able to create outcome transaction without a valid balance', async () => {
     await request(app).post('/transactions').send({
       title: 'March Salary',
       type: 'income',

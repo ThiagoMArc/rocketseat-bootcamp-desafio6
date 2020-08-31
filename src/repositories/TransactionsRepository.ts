@@ -17,16 +17,18 @@ class TransactionsRepository extends Repository<Transaction> {
       where: {
         type: 'income'
       }
-    }).then((tr) => {
-      return tr.map(t => Number(t.value)).reduce((initial, curr) => initial + curr, 0)
+    }).then((tr: any[]) => {
+      return tr.map((t: { value: any; }) => Number(t.value)).reduce((initial: any, curr: any) => initial + curr, 0)
     });
 
     const outcome = await transactionRepository.find({
       where: {
         type: 'outcome'
       }
-    }).then((tr) => {
-      return tr.map(t => Number(t.value)).reduce((initial, curr) => initial + curr, 0)
+    }).then((tr: any[]) => {
+      return tr.map((t: { value: any; }) => Number(t.value)).reduce((initial: any, curr: any) => {
+        return initial + curr;
+      }, 0)
     });
 
     return { outcome, income, total: income - outcome };
