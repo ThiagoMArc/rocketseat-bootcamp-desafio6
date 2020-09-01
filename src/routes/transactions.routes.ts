@@ -38,7 +38,7 @@ transactionsRouter.delete('/:id', async (request, response) => {
   return response.status(204);
 });
 
-transactionsRouter.post('/import', upload.single('transactions_file'), async (request, response) => {
+transactionsRouter.post('/import', upload.single('file'), async (request, response) => {
   const transationsImportService = new ImportTransactionsService();
 
   const transaction = await transationsImportService.execute({

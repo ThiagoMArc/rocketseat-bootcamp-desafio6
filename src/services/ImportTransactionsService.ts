@@ -14,13 +14,7 @@ class ImportTransactionsService {
 
     const transactionData = await importFileService.loadCSV(transactionFile);
 
-    transactionData.forEach(transactionArr => {
-      const [title, type, value, category] = transactionArr;
-      
-    });
-
-
-    return [];
+    return transactionData;
   }
 
 }

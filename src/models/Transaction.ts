@@ -24,7 +24,7 @@ class Transaction {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @ManyToOne(() => Category)
+  @ManyToOne(type => Category)
   @JoinColumn({ name: 'category_id' })
   category: Category;
 }
